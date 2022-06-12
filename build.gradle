@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+dependencies {
+    implementation project(":web")
+}
+
+group 'com.epam.esm'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'war'
+
+    group 'com.epam.esm'
+    version '1.0'
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        springVersion = '5.3.18'
+        servletVersion = '4.0.1'
+        junitversion = '5.8.2'
+        jacksonVersion = '2.13.3'
+    }
+
+    dependencies {
+        implementation group: 'org.springframework', name: 'spring-core', version: springVersion
+        implementation group: 'org.springframework', name: 'spring-context', version: springVersion
+        testImplementation group: 'org.springframework', name: 'spring-test', version: springVersion
+        implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonVersion
+        implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: jacksonVersion
+        implementation 'org.hibernate.validator:hibernate-validator:7.0.4.Final'
+        testImplementation "org.junit.jupiter:junit-jupiter-api:$junitversion"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitversion"
+        implementation 'com.h2database:h2:2.1.212'
+        implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.6'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

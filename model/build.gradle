@@ -1,0 +1,13 @@
+ext {
+    jupiterVersion = '5.8.2'
+}
+
+dependencies {
+    implementation group: 'org.springframework', name: 'spring-jdbc', version: springVersion
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
