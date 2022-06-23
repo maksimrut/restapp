@@ -1,0 +1,15 @@
+dependencies {
+    implementation project(":service")
+    implementation project(":model")
+    implementation group: 'org.springframework', name: 'spring-web', version: springVersion
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: springVersion
+    implementation group: 'org.springframework', name: 'spring-jdbc', version: springVersion
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: servletVersion
+    implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.9.0'
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}
